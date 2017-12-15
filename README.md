@@ -1,9 +1,9 @@
 # vue-img-cropper ---基于Vue的移动端图片裁剪组件
 
 ### 作者
-name: xianglei
-phone: 15067180409
-email: 1046132177@qq.com
+ - name: xianglei
+ - phone: 15067180409
+ - email: 1046132177@qq.com
 
 ## 依赖
 ```bash
