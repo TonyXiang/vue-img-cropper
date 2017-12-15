@@ -1,0 +1,17 @@
+{
+  "name": "vue-img-cropper",
+  "version": "1.0.2",
+  "description": "a img-cropper for vue@2.0+; 移动端图片裁剪组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "mobile",
+    "img",
+    "crop"
+  ],
+  "author": "xianglie",
+  "license": "ISC"
+}
