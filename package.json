@@ -1,8 +1,8 @@
 {
   "name": "vue-img-cropper",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "a img-cropper for vue@2.0+; 移动端图片裁剪组件",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node dev-server.js"
