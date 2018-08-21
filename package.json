@@ -1,6 +1,6 @@
 {
   "name": "vue-img-cropper",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "a img-cropper for vue@2.0+; 移动端图片裁剪组件",
   "main": "src/index.js",
   "scripts": {
