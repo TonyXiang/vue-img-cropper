@@ -12,12 +12,13 @@ npm install exif-js -S
 
 ## 安装
 ```shell
-npm install vue-img-cropper -S
+npm install vue-img-cropper -D
 ```
 
 ## 使用举例
 ```js
-import VueImgCropper from "./vue-img-cropper"
+import VueImgCropper from "vue-img-cropper"
+Vue.component(VueImgCropper.name, VueImgCropper)
 ```
 ```html
 <vue-img-cropper
@@ -28,7 +29,7 @@ import VueImgCropper from "./vue-img-cropper"
     :compressionRatio="0.8"
     @cutImg="showCutImg"
     @showLoading="showLoading"
-    @hideLoaing="hideLoading"
+    @hideLoading="hideLoading"
     @showError="showError"
 >
     <div class="cut-btn">图片裁剪</div>
@@ -45,7 +46,7 @@ this.$refs.cropper.getImg()
  - width：（Number） 裁剪后图片的宽度（单位px） 默认值：500
  - maxScale： （Number） 图片发最大的放大倍数    默认值：4
  - compressionRatio：（Number）图片压缩比例（0～1） 默认值：0.92
- - footerHeight：（Number）底部按钮的高度（单位px）
+ - footerHeight：（Number）裁剪页面底部栏的高度（单位px）
 
 ## 事件
  - cutImg：回调参数-base64格式的图片数据 ；确认裁剪时触发
@@ -57,4 +58,4 @@ this.$refs.cropper.getImg()
  - getImg：打开相册／相机
 
 ## slot
- 触发图片选择事件的按钮
+ - 打开相册／相机 的按钮元素

@@ -13,38 +13,38 @@
 </template>
 
 <script>
-    import VueImgCropper from "../src/vue-img-cropper";
+  import VueImgCropper from "../src/vue-img-cropper";
   export default {
-      data() {
-          return {
-              result: null
-          }
-      },
-      components: {
-          VueImgCropper
-
-      },
-      created() {
-
-      },
-      methods: {
-          chooseImg() {
-            this.$refs.cropper.getImg()
-          },
-          cutImg(data) {
-              this.result = data
-          }
+    data() {
+      return {
+        result: null
       }
+    },
+    components: {
+      VueImgCropper
+    },
+    created() {
+
+    },
+    methods: {
+      chooseImg() {
+        this.$refs.cropper.getImg()
+      },
+      cutImg(data) {
+        this.result = data
+      }
+    }
   }
 </script>
 
 <style lang="less">
   html, body {
     font-size: 12px;
-    padding: 0!important;
-    margin: 0!important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
-  .btn{
+
+  .btn {
     display: inline-block;
     margin: 10px;
     padding: 10px;
@@ -52,7 +52,8 @@
     color: #333;
     border: 1px solid #333;
   }
-  .result-img{
+
+  .result-img {
     width: 96%;
     margin: 10px 2%;
     border: 1px solid #ccc;
