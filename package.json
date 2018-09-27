@@ -11,7 +11,6 @@
     "fix": "eslint --ext .js,.vue --fix ."
   },
   "pre-commit": [
-    "fix",
     "lint"
   ],
   "keywords": [
