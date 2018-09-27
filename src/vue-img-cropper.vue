@@ -183,8 +183,10 @@ export default{
       }
 
       const reader = new FileReader()
+
+
       reader.readAsDataURL(file)
-      reader.onload = function (e) {
+      reader.onload= function(e) {
         const imgData = this.result
 
         /** 获取图片信息*/
