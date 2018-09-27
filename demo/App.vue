@@ -13,8 +13,9 @@
 </template>
 
 <script>
-  import VueImgCropper from "../src/vue-img-cropper";
-  export default {
+  import VueImgCropper from '../src/vue-img-cropper'
+
+export default {
     data() {
       return {
         result: null
