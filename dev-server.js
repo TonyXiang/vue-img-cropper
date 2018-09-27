@@ -1,10 +1,10 @@
 const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
+const opn = require('opn')
 
 const app = express()
 const config = require('./webpack.dev.config.js')
-
 const compiler = webpack(config)
 
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
@@ -16,6 +16,7 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(require('webpack-hot-middleware')(compiler))
 
 // Serve the files on port 8990.
-app.listen(8990, () => {
+app.listen(8990, function() {
   console.log('Example app listening on port 8990!\n')
+  opn('http://localhost:8990/demo.html')
 })
