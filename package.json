@@ -11,6 +11,7 @@
     "fix": "eslint --ext .js,.vue --fix ."
   },
   "pre-commit": [
+    "fix",
     "lint"
   ],
   "keywords": [
@@ -31,17 +32,16 @@
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "eslint": "^5.6.0",
-    "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-html": "^4.0.5",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-vuefix": "^0.2.1",
     "exif-js": "^2.3.0",
     "express": "^4.16.3",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
+    "pre-commit": "^1.2.2",
     "vue": "^2.5.17",
     "vue-loader": "^15.3.0",
     "vue-style-loader": "^4.1.2",
