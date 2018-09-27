@@ -29,9 +29,7 @@ export default {
     },
     methods: {
       chooseImg() {
-
-
-        this.$refs.cropper.getImg();
+        this.$refs.cropper.getImg()
       },
       cutImg(data) {
         this.result = data
