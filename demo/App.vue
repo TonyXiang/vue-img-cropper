@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import VueImgCropper from '../dist/index'
+  import VueImgCropper from '../src/index'
   export default {
     data() {
       return {
