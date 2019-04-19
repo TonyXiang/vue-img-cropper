@@ -52,7 +52,6 @@
 
 </template>
 <script type="text/javascript">
-import EXIF from 'exif-js'
 
 export default{
   name: 'vueImgCropper',
@@ -65,13 +64,17 @@ export default{
       type: Number,
       default: 500
     },
+    maxSize: {
+      type: Number,
+      default: Number.MAX_VALUE
+    },
     maxScale: {
       type: Number,
       default: 4
     },
     footerHeight: {
       type: Number,
-      default: window.innerWidth / 6.4 * 0.88
+      default: window.innerWidth * 0.1375
     },
     compressionRatio: {
       type: Number,
@@ -171,7 +174,15 @@ export default{
 
       if (!/image\/\w+/.test(file.type)) {
         this.$emit('showError', '文件必须为图片！')
-        return false
+        return
+      }
+
+      if (file.size > this.maxSize) {
+        this.$emit('oversize', {
+          fileSize: file.size,
+          maxSize: this.maxSize
+        })
+        return
       }
 
       this.showLoading()
@@ -187,15 +198,8 @@ export default{
       reader.readAsDataURL(file)
       reader.onload = function(e) {
         const imgData = this.result
-
-        /** 获取图片信息*/
-        EXIF.getData(file, function() {
-          EXIF.getAllTags(this)
-          // 获取图片的拍摄角度
-          const orientation = EXIF.getTag(this, 'Orientation')
-
+        self.getOrientation(file).then(orientation => {
           const firstImg = new Image()
-
           firstImg.onload = function() {
             let degree = 0
 
@@ -673,8 +677,52 @@ export default{
         array.push(binary.charCodeAt(i))
       }
       return new Blob([new Uint8Array(array)], { type })
+    },
+    getOrientation(file) {
+      return new Promise((resolve, reject) => {
+        try {
+          const reader = new FileReader()
+          reader.onload = function(e) {
+            const view = new DataView(e.target.result)
+            if (view.getUint16(0, false) !== 0xffd8) {
+              resolve(-2) // 不是jpeg
+            }
+            const length = view.byteLength
+            let offset = 2
+            while (offset < length) {
+              if (view.getUint16(offset + 2, false) <= 8) {
+                resolve(-1) // 不包含旋转信息
+              }
+              const marker = view.getUint16(offset, false)
+              offset += 2
+              if (marker === 0xffe1) {
+                offset += 2
+                if (view.getUint32(offset, false) !== 0x45786966) {
+                  resolve(-1) // 不包含旋转信息
+                }
+                const little = view.getUint16((offset += 6), false) === 0x4949
+                offset += view.getUint32(offset + 4, little)
+                const tags = view.getUint16(offset, little)
+                offset += 2
+                for (let i = 0; i < tags; i += 1) {
+                  if (view.getUint16(offset + i * 12, little) === 0x0112) {
+                    resolve(view.getUint16(offset + i * 12 + 8, little))
+                  }
+                }
+              } else if ((marker & 0xff00) !== 0xff00) {
+                break
+              } else {
+                offset += view.getUint16(offset, false)
+              }
+            }
+            resolve(-1) // 不包含旋转信息
+          }
+          reader.readAsArrayBuffer(file)
+        } catch (e) {
+          reject(e)
+        }
+      })
     }
-
   },
   created() {
     if (this.height === 0 || this.width === 0) {
