@@ -69,9 +69,9 @@ this.$refs.cropper.getImg()
 | --- | --- | --- |
 | cutImg | 确认裁剪时触发 | base64格式的图片数据 |
 | oversize | 图片体积超过`maxSize`时触发 | Object: { fileSize, maxSize } ；(fileSize、maxSize为 `Number` 类型的数据，单位：b) |
-| showLoading | 加载时触发 | -- } |
-| hideLoading | 加载完成后触发 | -- } |
-| showError | showError | -- } |
+| showLoading | 加载时触发 | -- |
+| hideLoading | 加载完成后触发 | -- |
+| showError | showError | -- |
 
 ## Slot
 | 名称 | 说明 |
