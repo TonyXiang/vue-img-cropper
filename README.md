@@ -43,7 +43,7 @@ export default {
       // or do other things such as upload
       const formData = new FormData()
       const binary = atob(data.split(',')[1])
-      const fileType = data.split(';')[0].split(:)[1]
+      const fileType = data.split(';')[0].split(':')[1]
       const array = []
       for (let i = 0; i < binary.length; i += 1) {
         array.push(binary.charCodeAt(i))
