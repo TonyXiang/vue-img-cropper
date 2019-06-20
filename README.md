@@ -17,7 +17,7 @@ npm install vue-img-cropper -S
   :width="800"
   @cutImg="handleCutImg"
 >
-  <div class="cut-btn">Confirm</div>
+  <div class="cut-btn">Click Me</div>
 </vue-img-cropper>
 
 <img v-if="base64Data"
@@ -56,7 +56,7 @@ export default {
 }
 ```
 
-点击 `<div class="cut-btn">图片裁剪</div>` 会打开相册／相机；也可以调用组件的 `getImg` 方法来打开相册／相机
+点击 `<div class="cut-btn">Click Me</div>` 会打开相册／相机；也可以调用组件的 `getImg` 方法来打开相册／相机
 ```js
 this.$refs.cropper.getImg()
 ```
@@ -80,7 +80,7 @@ this.$refs.cropper.getImg()
 | oversize | 图片体积超过`maxSize`时触发 | Object: { fileSize, maxSize } ；(fileSize、maxSize为 `Number` 类型的数据，单位：b) |
 | showLoading | 加载时触发 | -- |
 | hideLoading | 加载完成后触发 | -- |
-| showError | showError | -- |
+| showError | ErrorMsg, `String` | '***' |
 
 ## Slot
 | 名称 | 说明 |
@@ -88,6 +88,9 @@ this.$refs.cropper.getImg()
 | （默认） | 触发打开相机/相册的按钮 |
 
 ## 更新日志
+### v1.4.1
+* 优化文档
+
 ### v1.4.0
 * 增加属性：`confirmBtnText`、`confirmBtnText`
 * 优化文档，增加 Demo 链接
