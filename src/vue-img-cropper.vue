@@ -43,8 +43,8 @@
         ></div>
       </div>
       <div class="page-footer" :style="{height: footerHeight + 'px', 'line-height':footerHeight + 'px',}">
-        <div class="page-footer-btn" @click="hidePage">取消</div>
-        <div class="page-footer-btn" @click="cutImg">选取</div>
+        <div class="page-footer-btn" @click="hidePage">{{confirmBtnText}}</div>
+        <div class="page-footer-btn" @click="cutImg">{{cancelBtnText}}</div>
       </div>
 
     </div>
@@ -79,6 +79,14 @@ export default{
     compressionRatio: {
       type: Number,
       default: 0.92
+    },
+    confirmBtnText: {
+      type: String,
+      default: '选取'
+    },
+    cancelBtnText: {
+      type: String,
+      default: '取消'
     }
   },
   data() {

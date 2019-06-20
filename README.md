@@ -1,24 +1,23 @@
-# vue-img-cropper 基于Vue的移动端图片裁剪组件
+# vue-img-cropper
+> 基于Vue2.0的移动端图片裁剪组件
 
-### 作者
- - name: xianglei
- - phone: 15067180409
- - email: 1046132177@qq.com
+## Demo
+[![Edit Vue Template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vue-template-s5f1o?fontsize=14)
 
-## 安装
+## Install
 ```bash
 npm install vue-img-cropper -S
 ```
 
-## 使用举例
+## Example
 ```html
 <vue-img-cropper
   ref="cropper"
   :height="800"
   :width="800"
-  @cutImg="showCutImg"
+  @cutImg="handleCutImg"
 >
-  <div class="cut-btn">图片裁剪</div>
+  <div class="cut-btn">Confirm</div>
 </vue-img-cropper>
 
 <img v-if="base64Data"
@@ -39,9 +38,17 @@ export default {
   methods: {
     ...
     handleCutImg(data) {
-      this.base64Data = data // 把数据赋值到 img 元素的 src 属性
+      this.base64Data = data
 
-      // 也可以在这里做一些图片上传等其他处理...
+      // or do other things such as upload
+      const formData = new FormData()
+      const binary = atob(data.split(',')[1])
+      const fileType = data.split(';')[0].split(:)[1]
+      const array = []
+      for (let i = 0; i < binary.length; i += 1) {
+        array.push(binary.charCodeAt(i))
+      }
+      formData.append('file', new Blob([new Uint8Array(array)], { type: fileType }))
       ...
     },
     ...
@@ -63,6 +70,8 @@ this.$refs.cropper.getImg()
 | maxScale | 可选，图片最大的放大倍数 | `Number` | 4 |
 | compressionRatio | 可选，图片压缩比例，范围为：0～1 | `Number` | 0.92 |
 | footerHeight | 可选，裁剪页面底部栏的高度（单位px） | `Number` | window.innerWidth * 0.1375 |
+| confirmBtnText | 可选，底部栏确认按钮文案 | `String` | '选取' |
+| cancelBtnText | 可选，底部栏取消按钮文案 | `String` | '取消' |
 
 ## Event
 | 事件名称 | 说明 | 回调参数 |
@@ -79,6 +88,10 @@ this.$refs.cropper.getImg()
 | （默认） | 触发打开相机/相册的按钮 |
 
 ## 更新日志
+### v1.4.0
+* 增加属性：`confirmBtnText`、`confirmBtnText`
+* 优化文档，增加 Demo 链接
+
 ### v1.3.0
 * 删除 `exif-js` 依赖
 * 增加属性：`maxSize`
