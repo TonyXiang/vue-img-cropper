@@ -1,4 +1,4 @@
-# vue-img-cropper
+# vue-img-cropper [![Build Status](https://travis-ci.com/TonyXiang/vue-img-cropper.svg?branch=master)](https://travis-ci.com/TonyXiang/vue-img-cropper)
 > 基于Vue2.0的移动端图片裁剪组件
 
 ## Demo
