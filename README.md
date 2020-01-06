@@ -88,7 +88,7 @@ this.$refs.cropper.getImg()
 | （默认） | 触发打开相机/相册的按钮 |
 
 ## 更新日志
-### v1.4.2
+### v1.4.3
 * bug fix: 修复`confirmBtnText`、`cancelBtnText`反了的问题
 
 ### v1.4.1
