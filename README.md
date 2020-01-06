@@ -1,5 +1,5 @@
 # vue-img-cropper
-> 基于Vue2.0的移动端图片裁剪组件
+> 基于Vue2.0的移动端图片裁剪组件 [![Build Status](https://travis-ci.com/TonyXiang/vue-img-cropper.svg?branch=master)](https://travis-ci.com/TonyXiang/vue-img-cropper)
 
 ## Demo
 [![Edit Vue Template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vue-template-s5f1o?fontsize=14)
