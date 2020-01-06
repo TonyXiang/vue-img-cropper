@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-img-cropper ref="cropper"
-      :maxSize="1024"
+      :maxSize="1024*1024"
       :height="500"
       :width="500"
       @cutImg="cutImg"
@@ -33,6 +33,7 @@
         this.$refs.cropper.getImg()
       },
       cutImg(data) {
+        console.log('cutimg')
         this.result = data
       },
       oversize({ fileSize, maxSize }) {

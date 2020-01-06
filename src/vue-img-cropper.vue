@@ -43,8 +43,8 @@
         ></div>
       </div>
       <div class="page-footer" :style="{height: footerHeight + 'px', 'line-height':footerHeight + 'px',}">
-        <div class="page-footer-btn" @click="hidePage">{{confirmBtnText}}</div>
-        <div class="page-footer-btn" @click="cutImg">{{cancelBtnText}}</div>
+        <div class="page-footer-btn" @click="hidePage">{{cancelBtnText}}</div>
+        <div class="page-footer-btn" @click="cutImg">{{confirmBtnText}}</div>
       </div>
 
     </div>
